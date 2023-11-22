@@ -2,8 +2,8 @@
 building database for pizza delivary shop
 
 
+![pizza_delivery_system](https://github.com/akhilkarthik/pizza_delivery_database/assets/40953068/6f43e545-270e-4847-bb3e-63488a95a6a5)
 
-![Screenshot 2023-11-22 123522](https://github.com/akhilkarthik/pizza_delivery_database/assets/40953068/ebd7c1b2-c5a7-43b8-b823-c8cdd1cee477)
 
 Pizza Delivery Management System 🍕🚚
 Pizza Delivery
