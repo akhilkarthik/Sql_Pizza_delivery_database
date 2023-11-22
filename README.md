@@ -75,6 +75,7 @@ Usage
 Getting started with the Pizza Delivery Management System is a breeze. Here's a quick guide:
 
 
+
 Place Orders:
 
 
@@ -82,15 +83,19 @@ Navigate to the Orders section.
 Input customer details and select pizzas.
 Complete the order.
 
+
 Manage Stock:
 
 Monitor ingredient stock levels.
 Set order thresholds for automatic replenishment.
 
+
 Staff Management:
 
 View and update staff information.
 Monitor work schedules and performance.
+
+
 Interactive Dashboards:
 
 Explore dynamic dashboards for sales, stock, and staff performance.
