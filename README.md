@@ -1,5 +1,5 @@
 # pizza_delivery_database
-building database for pizza delivary shop
+Building database for pizza delivary shop
 
 
 ![pizza_delivery_system](https://github.com/akhilkarthik/pizza_delivery_database/assets/40953068/6f43e545-270e-4847-bb3e-63488a95a6a5)
