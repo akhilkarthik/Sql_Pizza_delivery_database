@@ -1,6 +1,5 @@
 
-
---use pizza_delivery
+use pizza_delivery
 --- inserting the data to the created tables
 
 
@@ -21,15 +20,6 @@ values(1,'Tomato Sauce','Cup'),
 (4,'Mushrooms','Gram'),
 (5,'Green Peppers','Piece')
 
---OrderDetails
-
-insert into orderdetails(OrderDetailID,Quantity)
-values(1,2),
-(2,1),
-(3,3),
-(4,1),
-(5,2)
-
 --orders
 
 insert into orders (OrderID,CustomerID,OrderDate,DeliveryAddress,TotalAmount)
@@ -39,16 +29,6 @@ values(1,1,'2023-01-15 12:30:00','123 Main St',25.99),
 (4,4,'2023-04-05 15:15:00','101 Elm Ln',42.00),			
 (5,5,'2023-05-20 11:00:00','202 Cedar Blvd',28.80)			
 
-
---pizzaingredients
-insert into pizzaingredients(PizzaIngredientID,QuantityRequired)
-values(1,2),
-(2,8),
-(3,10),
-(4,100),
-(5,5)
-
-
 --pizzas
 
 insert into pizzas(PizzaID,PizzaName,BasePrice)
@@ -57,6 +37,25 @@ values(101,'Margherita',12.99),
 (103,'Supreme',9.25),
 (104,'Vegetarian',21.00),
 (105,'Hawaiian',14.40)	
+
+
+--OrderDetails
+
+insert into orderdetails(OrderDetailID,OrderID,PizzaID,Quantity)
+values(1,1,101,2),
+(2,2,102,1),
+(3,3,103,3),
+(4,4,104,1),
+(5,5,105,2)
+
+--pizzaingredients
+insert into pizzaingredients(PizzaIngredientID,PizzaID,IngredientID,QuantityRequired)
+values(1,101,1,2),
+(2,102,2,8),
+(3,103,3,10),
+(4,104,4,100),
+(5,105,5,5)
+
 
 --staff
 
@@ -69,31 +68,33 @@ values(1,'David','Miller','Chef',3000.00,'2022-01-01'),
 
 --stockorders
 
-insert into stockorders(StockOrderID,OrderDate,QuantityOrdered,Delivered)
-values(1,'2023-01-20',30,1),
-(2,'2023-02-10',20,0),
-(3,'2023-03-15',40,1),	
-(4,'2023-04-08',50,0),
-(5,'2023-05-25',15,0)
+insert into stockorders(StockOrderID,IngredientID,OrderDate,QuantityOrdered,Delivered)
+values(1,1,'2023-01-20',30,1),	
+(2,2,'2023-02-10',20,0),
+(3,3,'2023-03-15',40,1),	
+(4,4,'2023-04-08',50,0),	
+(5,5,'2023-05-25',15,0)	
+
 
 --stock thresholds
 
-insert into stockthresholds(ThresholdID,ThresholdQuantity)
-values(1,20),
-(2,50),
-(3,30),
-(4,100),
-(5,10)
+insert into stockthresholds(ThresholdID,IngredientID,ThresholdQuantity)
+values(1,1,20),
+(2,2,50),
+(3,3,30),
+(4,4,100),
+(5,5,10)
+
 
 
 --workschedule
 
-insert into workschedule(ScheduleID,Weekday,StartTime,EndTime)
-values(1,'Monday','08:00:00','15:00:00'),
-(2,'Tuesday','11:00:00','18:00:00'),
-(3,'Wednesday','09:30:00','16:30:00'),
-(4,'Thursday','12:00:00','19:00:00'),
-(5,'Friday','10:00:00','17:00:00')
+insert into workschedule(ScheduleID,StaffID,Weekday,StartTime,EndTime)
+values(1,1,'Monday','08:00:00','15:00:00'),
+(2,2,'Tuesday','11:00:00','18:00:00'),
+(3,3,'Wednesday','09:30:00','16:30:00'),
+(4,4,'Thursday','12:00:00','19:00:00'),
+(5,5,'Friday','10:00:00','17:00:00')
 
 
 
