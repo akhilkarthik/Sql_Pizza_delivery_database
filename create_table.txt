@@ -1,0 +1,119 @@
+--create database pizza_delivery2
+
+-- use pizza_delivery2
+
+-- Customers Table
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100),
+    Phone VARCHAR(15),
+    Address VARCHAR(255)
+);
+
+-- Orders Table
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT FOREIGN KEY REFERENCES Customers(CustomerID),
+    OrderDate DATETIME,
+    DeliveryAddress VARCHAR(255),
+    TotalAmount DECIMAL(10, 2)
+);
+-- Pizzas Table
+CREATE TABLE Pizzas (
+    PizzaID INT PRIMARY KEY,
+    PizzaName VARCHAR(50),
+    BasePrice DECIMAL(10, 2)
+);
+
+-- OrderDetails Table
+CREATE TABLE OrderDetails (
+    OrderDetailID INT PRIMARY KEY,
+    OrderID INT FOREIGN KEY REFERENCES Orders(OrderID),
+    PizzaID INT FOREIGN KEY REFERENCES Pizzas(PizzaID),
+    Quantity INT
+);
+
+-- Ingredients Table
+CREATE TABLE Ingredients (
+    IngredientID INT PRIMARY KEY,
+    IngredientName VARCHAR(50),
+    UnitMeasure VARCHAR(20)
+);
+
+-- PizzaIngredients Table
+CREATE TABLE PizzaIngredients (
+    PizzaIngredientID INT PRIMARY KEY,
+    PizzaID INT FOREIGN KEY REFERENCES Pizzas(PizzaID),
+    IngredientID INT FOREIGN KEY REFERENCES Ingredients(IngredientID),
+    QuantityRequired INT
+);
+
+-- StockLevels Table
+CREATE TABLE StockLevels (
+    StockLevelID INT PRIMARY KEY,
+    IngredientID INT FOREIGN KEY REFERENCES Ingredients(IngredientID),
+    QuantityInStock INT,
+    LastUpdated DATETIME
+);
+
+-- StockThresholds Table
+CREATE TABLE StockThresholds (
+    ThresholdID INT PRIMARY KEY,
+    IngredientID INT FOREIGN KEY REFERENCES Ingredients(IngredientID),
+    ThresholdQuantity INT
+);
+
+-- StockOrders Table
+CREATE TABLE StockOrders (
+    StockOrderID INT PRIMARY KEY,
+    IngredientID INT FOREIGN KEY REFERENCES Ingredients(IngredientID),
+    OrderDate DATETIME,
+    QuantityOrdered INT,
+    Delivered BIT
+);
+
+-- Staff Table
+CREATE TABLE Staff (
+    StaffID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Position VARCHAR(50),
+    Salary DECIMAL(10, 2),
+    EmploymentStartDate DATE
+);
+
+-- WorkSchedule Table
+CREATE TABLE WorkSchedule (
+    ScheduleID INT PRIMARY KEY,
+    StaffID INT FOREIGN KEY REFERENCES Staff(StaffID),
+    Weekday VARCHAR(15),
+    StartTime TIME,
+    EndTime TIME
+);
+
+
+
+-- SalesDashboard Table
+CREATE TABLE SalesDashboard (
+    Date DATE PRIMARY KEY,
+    TotalOrders INT,
+    TotalRevenue DECIMAL(10, 2)
+);
+
+-- StockDashboard Table
+CREATE TABLE StockDashboard (
+    IngredientID INT PRIMARY KEY,
+    IngredientName VARCHAR(50),
+    QuantityInStock INT,
+    ThresholdQuantity INT
+);
+
+-- StaffPerformance Table
+CREATE TABLE StaffPerformance (
+    StaffID INT PRIMARY KEY,
+    StaffName VARCHAR(100),
+    TotalOrdersHandled INT,
+    TotalHoursWorked DECIMAL(5, 2)
+);
