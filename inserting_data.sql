@@ -85,8 +85,6 @@ values(1,1,20),
 (4,4,100),
 (5,5,10)
 
-
-
 --workschedule
 
 insert into workschedule(ScheduleID,StaffID,Weekday,StartTime,EndTime)
@@ -95,6 +93,15 @@ values(1,1,'Monday','08:00:00','15:00:00'),
 (3,3,'Wednesday','09:30:00','16:30:00'),
 (4,4,'Thursday','12:00:00','19:00:00'),
 (5,5,'Friday','10:00:00','17:00:00')
+
+--StockLevels
+
+insert into StockLevels(StockLevelID,IngredientID,QuantityInStock,LastUpdated)
+values(1,1,50,'2023-01-15'),	
+(2,2,100,'2023-02-01'),	
+(3,3,75,'2023-03-10'),	
+(4,4,200,'2023-04-05'),	
+(5,5,30,'2023-05-20')	
 
 
 
