@@ -1,4 +1,3 @@
-# pizza_delivery_database
 Building database for pizza delivary shop
 
 
